@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+
+      <h1 class="my-3"><%= @restaurant.name %></h1>
+
+      <table class="table table-bordered">
+          <tr>
+            <th>Address</th>
+            <td><%= @restaurant.address %></td>
+          </tr>
+          <tr>
+            <th>Phone Number</th>
+            <td><%= @restaurant.phone_number %></td>
+          </tr>
+          <tr>
+            <th>Category</th>
+            <td><%= @restaurant.category %></td>
+          </tr>
+      </table>
+      
+      <%= link_to "Check all restaurants", restaurants_path %>
+    </div>
+  </div>
+</div>
