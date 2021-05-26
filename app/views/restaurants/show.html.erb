@@ -7,48 +7,13 @@
         <%= link_to "Check all restaurants", restaurants_path %>
       </div>
 
-      <table class="table table-bordered mb-5">
-          <tr>
-            <th>Address</th>
-            <td><%= @restaurant.address %></td>
-          </tr>
-          <tr>
-            <th>Phone Number</th>
-            <td><%= @restaurant.phone_number %></td>
-          </tr>
-          <tr>
-            <th>Category</th>
-            <td><%= @restaurant.category %></td>
-          </tr>
-      </table>
-
-      
+      <%= render 'table', restaurant: @restaurant %>
 
       <h2 class="my-3">Give your review to this restaurant</h2>
-      <%= simple_form_for [@restaurant, @review] do |f| %>
-        <%= f.input :content, input_html: { class: 'my-2' } %>
-        <%= f.input :rating, collection: 0..5, input_html: { class: 'my-2' } %>
-        <div class="d-flex align-items-center justify-content-between">
-          <%= f.button :submit, "Give review", class: 'btn btn-primary my-4' %>
-        </div>
-      <% end %>
+      <%= render 'form_review', restaurant: @restaurant, review: @review %>
 
       <div class="list-group my-3">
-      
-        <% @restaurant.reviews.each do |review| %>
-          <li class="list-group-item my-2">
-            <small>
-
-              <% review.rating.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-              <% (5 - review.rating).times do %>
-                <i class="far fa-star"></i>
-              <% end %>
-            </small>
-            <p><%= review.content %></p>
-          </li>
-        <% end %>
+        <%= render 'list_review', restaurant: @restaurant %>
       </div>
       
     </div>

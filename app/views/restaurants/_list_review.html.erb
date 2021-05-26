@@ -1,0 +1,13 @@
+<% restaurant.reviews.each do |review| %>
+  <li class="list-group-item my-2">
+    <small>
+      <% review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      <% (5 - review.rating).times do %>
+        <i class="far fa-star"></i>
+      <% end %>
+    </small>
+    <p><%= review.content %></p>
+  </li>
+<% end %>

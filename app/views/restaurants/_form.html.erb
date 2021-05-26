@@ -1,0 +1,10 @@
+<%= simple_form_for restaurant do |f| %>
+  <%= f.input :name, input_html: { class: 'my-2' } %>
+  <%= f.input :address, input_html: { class: 'my-2' } %>
+  <%= f.input :phone_number, input_html: { class: 'my-2' } %>
+  <%= f.input :category, collection: Restaurant::CATEGORIES, input_html: { class: 'my-2' } %>
+  <div class="d-flex align-items-center justify-content-between">
+    <%= f.submit class: 'btn btn-primary my-4' %>
+    <%= link_to "Check all restaurants", restaurants_path %>
+  </div>
+<% end %>
