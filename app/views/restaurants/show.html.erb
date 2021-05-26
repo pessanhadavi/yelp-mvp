@@ -18,8 +18,30 @@
             <td><%= @restaurant.category %></td>
           </tr>
       </table>
-      
+
       <%= link_to "Check all restaurants", restaurants_path %>
+      <div class="list-group my-3">
+      <%= link_to 'Add a review to this restaurant', new_restaurant_review_path(@restaurant)  %>
+        <% @restaurant.reviews.each do |review| %>
+          <li class="list-group-item my-2">
+            <small>
+
+              <% review.rating.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5 - review.rating).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            </small>
+            <p><%= review.content %></p>
+          </li>
+        <% end %>
+      </div>
+      
     </div>
   </div>
 </div>
+
+ 
+       
+   
